@@ -28,5 +28,8 @@ VOLUME /etc/memgraph
 USER memgraph
 WORKDIR /usr/lib/memgraph
 
-ENTRYPOINT ["/usr/lib/memgraph/memgraph"]
+ENTRYPOINT ["/usr/lib/memgraph/memgraph",
+        "--telemetry-enabled=false",
+        "--query-modules-directory=/transformations,/usr/lib/memgraph/query_modules",
+        "--log-level=TRACE"]
 CMD [""]
